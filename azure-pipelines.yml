@@ -25,3 +25,19 @@ steps:
     PathtoPublish: 'build'
     ArtifactName: 'front'
     publishLocation: 'Container'
+
+- script: |
+      cd bff-ura-midway && npm ci
+  displayName: 'Install project dependencies'
+- script: |
+      cd bff-ura-midway && npm run cypress:verify
+  displayName: 'Verify if Cypress can be executed'
+- script: |
+      cd bff-ura-midway && npm run cypress:run
+  displayName: 'Executed test Cypress'
+- task: PublishTestResults@2
+  displayName: 'Publish the test reports'
+  inputs:
+    testResultsFiles: '**/test-*.xml'
+  condition: succeededOrFailed()
+  continueOnError: true

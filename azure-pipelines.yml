@@ -25,18 +25,3 @@ steps:
     PathtoPublish: 'build'
     ArtifactName: 'front'
     publishLocation: 'Container'
-
-jobs:
-      - job: NPM
-        displayName: Yarn Install & Yarn Test
-        steps:
-          - task: SonarQubePrepare@4
-            displayName: Prepare Analysis Configuration
-            inputs:
-              SonarQube: $(sonar_qube_service_connection)
-              scannerMode: 'CLI'
-              configMode: 'file'
-          - script: yarn install
-            displayName: YARN Install
-          - script: yarn pipeline-linux-coverage
-            displayName: YARN cypress

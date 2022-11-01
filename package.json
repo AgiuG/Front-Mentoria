@@ -38,5 +38,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cypress": "^10.11.0"
+  },
+  "pipeline-linux-coverage": {
+    "test": "env-cmd -f./.env.test jest",
+    "cypress": "start-server-and-test http://localhost:3000 cy:run",
+    "cy:run": "cypress run",
+    "merge-coverage": "npx istanbul-merge --out coverage.json ./coverage/coverage-final.json ./cypress-coverage/coverage-final.json && npx istanbul report --include coverage.json --dir ./coverage-merge lcovonly",
+    "sonar-pipeline": "yarn test && yarn cypress && yarn merge-coverage",
+    "pipeline-linux-coverage": "echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p && yarn sonar-pipeline"
   }
 }

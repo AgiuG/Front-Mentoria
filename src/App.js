@@ -25,7 +25,7 @@ function App() {
   function insertValores() {
     return (
       <FormControl margin="normal">
-        <FormGroup className="formGroup">
+        <FormGroup className="formGroup" id="ValorA">
           <TextField
             placeholder="Valor A"
             variant="outlined"
@@ -37,7 +37,7 @@ function App() {
           />
         </FormGroup>
 
-        <FormGroup className="formGroup">
+        <FormGroup className="formGroup" id="ValorB">
           <TextField
             placeholder="Valor B"
             variant="outlined"
@@ -56,10 +56,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         {insertValores()}
-        <Button className="button" onClick={() => multiplier()}>
+        <Button id="Botao" className="button" onClick={() => multiplier()}>
           Multiplicar
         </Button>
-        <p>{!data ? "..." : data}</p>
+        <p id="Resultado">{data}</p>
       </header>
     </div>
   );

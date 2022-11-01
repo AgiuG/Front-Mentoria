@@ -26,17 +26,18 @@ steps:
     ArtifactName: 'front'
     publishLocation: 'Container'
 
-jobs:
-      - job: NPM
-        displayName: Yarn Install & Yarn Test
-        steps:
-          - task: SonarQubePrepare@4
-            displayName: Prepare Analysis Configuration
-            inputs:
-              SonarQube: $(sonar_qube_service_connection)
-              scannerMode: 'CLI'
-              configMode: 'file'
-          - script: yarn install
-            displayName: YARN Install
-          - script: yarn pipeline-linux-coverage
-            displayName: YARN cypress
+- script: |
+      cd bff-ura-midway && npm ci
+  displayName: 'Install project dependencies'
+- script: |
+      cd bff-ura-midway && npm run cypress:verify
+  displayName: 'Verify if Cypress can be executed'
+- script: |
+      cd bff-ura-midway && npm run cypress:run
+  displayName: 'Executed test Cypress'
+- task: PublishTestResults@2
+  displayName: 'Publish the test reports'
+  inputs:
+    testResultsFiles: '**/test-*.xml'
+  condition: succeededOrFailed()
+  continueOnError: true

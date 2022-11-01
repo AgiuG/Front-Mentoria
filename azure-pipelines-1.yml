@@ -12,10 +12,21 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '14.x'
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+      cd bff-ura-midway && npm ci
+  displayName: 'Install project dependencies'
+- script: |
+      cd bff-ura-midway && npm run cypress:verify
+  displayName: 'Verify if Cypress can be executed'
+- script: |
+      cd bff-ura-midway && npm run cypress:run
+  displayName: 'Executed test Cypress'
+- task: PublishTestResults@2
+  displayName: 'Publish the test reports'
+  inputs:
+    testResultsFiles: '**/test-*.xml'
+  condition: succeededOrFailed()
+  continueOnError: true

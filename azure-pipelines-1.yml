@@ -16,13 +16,13 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-      cd bff-ura-midway && npm ci
+      cd cypress && npm ci
   displayName: 'Install project dependencies'
 - script: |
-      cd bff-ura-midway && npm run cypress:verify
+      cd cypress && npm run cypress:verify
   displayName: 'Verify if Cypress can be executed'
 - script: |
-      cd bff-ura-midway && npm run cypress:run
+      cd cypress && npm run cypress:run
   displayName: 'Executed test Cypress'
 - task: PublishTestResults@2
   displayName: 'Publish the test reports'

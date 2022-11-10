@@ -16,7 +16,6 @@ steps:
   displayName: 'npm install and build'
 
 - script: |
-    npm run start
     npm run cy:run
   displayName: 'Rodando cypress'
 

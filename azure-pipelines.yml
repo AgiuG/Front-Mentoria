@@ -11,13 +11,14 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    npm install wait-on 
     npm install
     npm run build
   displayName: 'npm install and build'
 
 - script: |
-    npm install cypress --save-dev
-    npm cy:run
+    npm start & wait-on cy:run
+    
   displayName: 'Rodando cypress'
 
 - task: PublishBuildArtifacts@1

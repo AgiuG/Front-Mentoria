@@ -16,7 +16,8 @@ steps:
   displayName: 'npm install and build'
 
 - script: |
-    npm run cy:run
+    npm start & wait-on http://localhost:8080
+    cy:run
   displayName: 'Rodando cypress'
 
 - task: PublishBuildArtifacts@1

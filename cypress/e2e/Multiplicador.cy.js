@@ -18,6 +18,6 @@ describe("Entrado na pagina", () => {
     cy.get("#ValorA").type(10);
     cy.get("#ValorB").type(10);
     cy.get("#Botao").click();
-    cy.get("#Resultado").contains(10);
+    cy.get("#Resultado").contains(2);
   });
 });

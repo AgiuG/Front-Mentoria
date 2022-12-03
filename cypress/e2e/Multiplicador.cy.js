@@ -13,11 +13,4 @@ describe("Entrado na pagina", () => {
     cy.get("#Botao").click();
     cy.get("#Resultado").contains(100);
   });
-
-  it("Testando Multiplicador, error", () => {
-    cy.get("#ValorA").type(10);
-    cy.get("#ValorB").type(10);
-    cy.get("#Botao").click();
-    cy.get("#Resultado").contains(2);
-  });
 });

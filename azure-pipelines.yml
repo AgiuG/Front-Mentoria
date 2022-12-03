@@ -25,4 +25,3 @@ steps:
     ArtifactName: 'front'
     publishLocation: 'Container'
 
-- task: PublishBuildArtifacts@1

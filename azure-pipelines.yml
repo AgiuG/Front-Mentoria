@@ -24,7 +24,7 @@ steps:
     rootFolderOrFile: '$(Build.BinariesDirectory)'
     includeRootFolder: true
     archiveType: 'zip'
-    archiveFile: 'front.zip'
+    archiveFile: 'front'
     replaceExistingArchive: true
 
 - task: PublishBuildArtifacts@1

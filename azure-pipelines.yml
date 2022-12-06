@@ -19,9 +19,17 @@ steps:
     npm run front  
   displayName: 'Rodando cypress'
 
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: 'front.zip'
+    replaceExistingArchive: true
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'build'
-    ArtifactName: 'front'
+    ArtifactName: 'front.zip'
     publishLocation: 'Container'
 

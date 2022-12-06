@@ -30,6 +30,6 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'build'
-    ArtifactName: 'front.zip'
+    ArtifactName: 'front'
     publishLocation: 'Container'
 

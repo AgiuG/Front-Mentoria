@@ -19,26 +19,11 @@ steps:
     npm run front  
   displayName: 'Rodando cypress'
 
-# - task: ArchiveFiles@2
-#   inputs:
-#     rootFolderOrFile: '$(Build.BinariesDirectory)'
-#     includeRootFolder: true
-#     archiveType: 'zip'
-#     archiveFile: 'front'
-#     replaceExistingArchive: true
-
-# - task: PowerShell@2
-#   inputs:
-#     targetType: 'inline'
-#     script: |
-#       Compress-Archive -Path "$(Build.BinariesDirectory\*" -DestinationPath "$(Build.ArtifactStagingDirectory)\$(Build.BuildId).zip"
-#     pwsh: true
-
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'build'
     ArtifactName: 'front'
     publishLocation: 'Container'
 
-- task: PublishBuildArtifacts@1
+
 

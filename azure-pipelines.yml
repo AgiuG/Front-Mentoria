@@ -31,7 +31,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      Compress-Archive -Path "$(Build.BinariesDirectory\*" -DestinationPath "front"
+      Compress-Archive -Path "$(Build.BinariesDirectory\*" -DestinationPath "$(Build.ArtifactStagingDirectory)\$(Build.BuildId).zip"
     pwsh: true
 
 - task: PublishBuildArtifacts@1

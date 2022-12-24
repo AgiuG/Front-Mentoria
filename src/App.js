@@ -16,8 +16,7 @@ function App() {
   }
 
   function multiplier() {
-    console.log(valorA);
-    fetch(`/api?ValorA=${valorA}&ValorB=${valorB}`)
+    fetch(`http://localhost:3001/?ValorA=${valorA}&ValorB=${valorB}`)
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }

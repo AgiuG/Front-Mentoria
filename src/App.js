@@ -16,7 +16,7 @@ function App() {
   }
 
   function multiplier() {
-    fetch(`http://localhost:3001/?ValorA=${valorA}&ValorB=${valorB}`)
+    fetch(`${process.env.REACT_APP_API_URL}/?ValorA=${valorA}&ValorB=${valorB}`)
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }

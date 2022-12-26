@@ -2,7 +2,7 @@ describe("Entrado na pagina", () => {
   beforeEach("", () => {
     cy.visit("http://localhost:3000/");
 
-    cy.intercept("GET", "http://localhost:3000/api?ValorA=10&ValorB=10", {
+    cy.intercept("GET", "http://localhost:3001/?ValorA=10&ValorB=10", {
       fixture: "Multiplicador",
     });
   });

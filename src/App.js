@@ -16,7 +16,9 @@ function App() {
   }
 
   function multiplier() {
-    fetch(`${process.env.REACT_APP_API_URL}/?ValorA=${valorA}&ValorB=${valorB}`)
+    fetch(
+      `https://mentoriaback.azurewebsites.net/?ValorA=${valorA}&ValorB=${valorB}`
+    )
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }

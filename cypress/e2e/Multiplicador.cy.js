@@ -4,7 +4,7 @@ describe("Entrado na pagina", () => {
 
     cy.intercept(
       "GET",
-      `${process.env.REACT_APP_API_URL}/?ValorA=10&ValorB=10`,
+      `https://mentoriaback.azurewebsites.net/?ValorA=10&ValorB=10`,
       {
         fixture: "Multiplicador",
       }

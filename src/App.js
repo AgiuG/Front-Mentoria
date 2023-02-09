@@ -16,9 +16,7 @@ function App() {
   }
 
   function multiplier() {
-    fetch(
-      `https://mentoriaback.azurewebsites.net/?ValorA=${valorA}&ValorB=${valorB}`
-    )
+    fetch(`http://localhost:3001/?ValorA=${valorA}&ValorB=${valorB}`)
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }

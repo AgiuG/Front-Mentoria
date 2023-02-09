@@ -56,7 +56,7 @@ function App() {
       <header className="App-header">
         {insertValores()}
         <Button id="Botao" className="button" onClick={() => multiplier()}>
-          Multiplicar
+          Multiplica
         </Button>
         <p id="Resultado">{data}</p>
       </header>

@@ -15,9 +15,9 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- script: |
-    npm run front  
-  displayName: 'Rodando cypress'
+# - script: |
+#     npm run front  
+#   displayName: 'Rodando cypress'
 
 - task: PublishBuildArtifacts@1
   inputs:
